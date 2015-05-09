@@ -1,0 +1,22 @@
+{
+  "name": "trevor",
+  "version": "0.0.1",
+  "description": "Object and array traversal helpers",
+  "main": "trevor.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "node ./node_modules/.bin/jasmine-node ./tests/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iamstuartwilson/trevor.git"
+  },
+  "author": "@iamstuartwilson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iamstuartwilson/trevor/issues"
+  },
+  "homepage": "https://github.com/iamstuartwilson/trevor"
+}
