@@ -2,4 +2,6 @@ language: node_js
 node_js:
   - "0.11"
   - "0.10"
-test: npm test
+before_script:
+  - npm install -g jasmine-node
+script: npm test
