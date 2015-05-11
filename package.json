@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/iamstuartwilson/trevor/issues"
   },
-  "homepage": "https://github.com/iamstuartwilson/trevor"
+  "homepage": "https://github.com/iamstuartwilson/trevor",
+  "dependencies": {
+    "objectkit": "0.0.6"
+  }
 }
