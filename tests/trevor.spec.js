@@ -1,5 +1,6 @@
 var trevor = require('../trevor');
 var testData = require('./data');
+var fs = require('fs');
 
 var grouped = trevor.object.group(testData, ['a', 'b']);
 
@@ -51,5 +52,16 @@ describe('Test trevor.js', function() {
 
             expect(subGroup['a.b'][0]).toEqual(1);
         });
-    })
+    });
+
+    describe('Test data reduction', function() {
+        var data = JSON.parse(fs.readFileSync(__dirname + '/data.json'));
+        var formatted = trevor.object.reduceAll(data, {
+            distance: function(d) {
+                return (d / 1000).toFixed(2) + 'km';
+            }
+        });
+
+        expect(formatted[0].distance).toBe('25.15km');
+    });
 });
