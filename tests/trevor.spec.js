@@ -1,6 +1,7 @@
 var trevor = require('../trevor');
 var testData = require('./data');
 var fs = require('fs');
+var moment = require('moment');
 
 var grouped = trevor.object.group(testData, ['a', 'b']);
 
@@ -63,5 +64,31 @@ describe('Test trevor.js', function() {
         });
 
         expect(formatted[0].distance).toBe('25.15km');
+    });
+
+    describe('Test Grouping', function() {
+        var data = [
+            {
+                date: '2015-01-31'
+            },
+            {
+                date: '2015-03-03'
+            },
+            {
+                date: '2014-01-31'
+            }
+        ];
+
+        var formattedData = trevor.array.groupByValue(data, {
+            date: function(d) {
+                console.log(d);
+                return moment(d).format('YYYY');
+            }
+        });
+
+        it('it should group the dates by year', function() {
+            expect(formattedData['2014']).toMatch(data[2]);
+            expect(formattedData['2015'].length).toBe(2);
+        });
     });
 });
